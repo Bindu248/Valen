@@ -3,6 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Valentine 💖</title>
+
   <style>
     body {
       margin: 0;
@@ -12,18 +13,26 @@
       align-items: center;
       background: linear-gradient(135deg, #ffd6e8, #ffeef5);
       font-family: 'Segoe UI', sans-serif;
+      overflow: hidden;
     }
 
     .card {
       background: #fff;
-      padding: 40px 50px;
+      padding: 35px 45px;
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      width: 320px;
+    }
+
+    .card img {
+      width: 160px;
+      margin-bottom: 15px;
     }
 
     h1 {
       color: #333;
+      font-size: 20px;
       margin-bottom: 10px;
     }
 
@@ -35,7 +44,7 @@
 
     .buttons {
       position: relative;
-      height: 60px;
+      height: 70px;
     }
 
     button {
@@ -44,7 +53,6 @@
       border: none;
       font-size: 16px;
       cursor: pointer;
-      transition: 0.2s ease;
     }
 
     #yesBtn {
@@ -57,12 +65,17 @@
       background: #f2f2f2;
       color: #333;
       position: absolute;
+      transition: none;
     }
   </style>
 </head>
+
 <body>
 
   <div class="card">
+    <!-- 🖼️ Image -->
+    <img src="love.png" alt="Love Image">
+
     <h1>Veeru, will you be my Valentine? 💕</h1>
     <p>Choose wisely… (The “No” button is shy 😜)</p>
 
@@ -76,26 +89,35 @@
     const noBtn = document.getElementById("noBtn");
     const yesBtn = document.getElementById("yesBtn");
 
-    noBtn.addEventListener("mouseover", () => {
-      const x = Math.random() * 200 - 100;
-      const y = Math.random() * 100 - 50;
-      noBtn.style.transform = `translate(${x}px, ${y}px)`;
-    });
+    function moveNoButton() {
+      const x = Math.random() * (window.innerWidth - 120);
+      const y = Math.random() * (window.innerHeight - 60);
+
+      noBtn.style.left = x + "px";
+      noBtn.style.top  = y + "px";
+    }
+
+    noBtn.addEventListener("mouseenter", moveNoButton);
+    noBtn.addEventListener("touchstart", moveNoButton);
 
     yesBtn.addEventListener("click", () => {
       document.body.innerHTML = `
-        <h1 style="
-          color:#ff4d88;
-          font-family:'Segoe UI',sans-serif;
+        <div style="
+          height:100vh;
+          display:flex;
+          justify-content:center;
+          align-items:center;
+          background:linear-gradient(135deg,#ffd6e8,#ffeef5);
           text-align:center;
         ">
-          Yayyy! 💖🥰<br>
-          Veeru said YES! 💕
-        </h1>
+          <h1 style="color:#ff4d88;">
+            Yayyy! 💖🥰<br>
+            Veeru said YES! 💕
+          </h1>
+        </div>
       `;
     });
   </script>
 
 </body>
 </html>
-
