@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Valentine 💖</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ffd6e8, #ffeef5);
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .card {
+      background: #fff;
+      padding: 40px 50px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+    }
+
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #777;
+      font-size: 14px;
+      margin-bottom: 25px;
+    }
+
+    .buttons {
+      position: relative;
+      height: 60px;
+    }
+
+    button {
+      padding: 12px 30px;
+      border-radius: 30px;
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.2s ease;
+    }
+
+    #yesBtn {
+      background: #ff4d88;
+      color: white;
+      margin-right: 20px;
+    }
+
+    #noBtn {
+      background: #f2f2f2;
+      color: #333;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h1>Veeru, will you be my Valentine? 💕</h1>
+    <p>Choose wisely… (The “No” button is shy 😜)</p>
+
+    <div class="buttons">
+      <button id="yesBtn">YES 💖</button>
+      <button id="noBtn">NO 😅</button>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+    const yesBtn = document.getElementById("yesBtn");
+
+    noBtn.addEventListener("mouseover", () => {
+      const x = Math.random() * 200 - 100;
+      const y = Math.random() * 100 - 50;
+      noBtn.style.transform = `translate(${x}px, ${y}px)`;
+    });
+
+    yesBtn.addEventListener("click", () => {
+      document.body.innerHTML = `
+        <h1 style="
+          color:#ff4d88;
+          font-family:'Segoe UI',sans-serif;
+          text-align:center;
+        ">
+          Yayyy! 💖🥰<br>
+          Veeru said YES! 💕
+        </h1>
+      `;
+    });
+  </script>
+
+</body>
+</html>
+
