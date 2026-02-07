@@ -18,21 +18,15 @@
 
     .card {
       background: #fff;
-      padding: 35px 45px;
+      padding: 40px 50px;
       border-radius: 20px;
       text-align: center;
       box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-      width: 320px;
-    }
-
-    .card img {
-      width: 160px;
-      margin-bottom: 15px;
+      position: relative;
     }
 
     h1 {
       color: #333;
-      font-size: 20px;
       margin-bottom: 10px;
     }
 
@@ -65,7 +59,7 @@
       background: #f2f2f2;
       color: #333;
       position: absolute;
-      transition: none;
+      transition: none; /* 🔥 instant move */
     }
   </style>
 </head>
@@ -73,9 +67,6 @@
 <body>
 
   <div class="card">
-    <!-- 🖼️ Image -->
-    <img src="love.png" alt="Love Image">
-
     <h1>Veeru, will you be my Valentine? 💕</h1>
     <p>Choose wisely… (The “No” button is shy 😜)</p>
 
@@ -97,7 +88,10 @@
       noBtn.style.top  = y + "px";
     }
 
+    // Desktop
     noBtn.addEventListener("mouseenter", moveNoButton);
+
+    // Mobile
     noBtn.addEventListener("touchstart", moveNoButton);
 
     yesBtn.addEventListener("click", () => {
@@ -110,7 +104,10 @@
           background:linear-gradient(135deg,#ffd6e8,#ffeef5);
           text-align:center;
         ">
-          <h1 style="color:#ff4d88;">
+          <h1 style="
+            color:#ff4d88;
+            font-family:'Segoe UI',sans-serif;
+          ">
             Yayyy! 💖🥰<br>
             Veeru said YES! 💕
           </h1>
